@@ -199,7 +199,6 @@
 <p>
   👤 <strong>Développeur :</strong> Jean-Michel Conti<br>
   📧 <strong>Email :</strong> jeanmichelconti.dev@gmail.com<br>
-  🔗 <strong>Portfolio :</strong> https://tonportfolio.com
 </p>
 
 <hr>
