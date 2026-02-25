@@ -102,10 +102,7 @@
 </p>
 
 <ul>
-  <li>📱 Smartphones</li>
-  <li>📲 Tablettes</li>
-  <li>💻 Laptops</li>
-  <li>🖥 Écrans larges</li>
+  <li>📱 Smartphones (page home)</li>
 </ul>
 
 <p>
