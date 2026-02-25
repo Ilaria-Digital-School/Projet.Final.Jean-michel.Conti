@@ -1,0 +1,106 @@
+/* -- Responsive styles -- */
+
+
+
+/* Fix hero image overflow */
+.home img {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+.home .picture {
+  width: 100% !important;
+}
+
+/* Responsive carousel */
+.selected-projects .carousel {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Responsive table */
+.selected-projects table {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 95% !important;
+  font-size: 0.9rem;
+}
+
+/* Responsive video */
+.video .container-fluid video {
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* Article cards responsive */
+.read-articles .container-fluid .carts .card {
+  width: 100% !important;
+  margin-bottom: 1rem;
+}
+
+/* Footer responsive */
+footer p {
+  margin-right: 0 !important;
+}
+
+/* Last section responsive */
+.last .list {
+  margin-left: 0 !important;
+  margin-top: 20px !important;
+}
+
+.last input[type='email'] {
+  width: 100% !important;
+  max-width: 400px;
+}
+
+/* Portfolio page responsive */
+.portfolio .container-fluid .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.info-project {
+  margin-left: 0 !important;
+  margin-top: 20px !important;
+  position: static !important;
+}
+
+/* Contact page responsive */
+.contact-cards .container .last-card {
+  margin-left: 0 !important;
+}
+
+/* === TABLET & UP (768px+) === */
+@media (min-width: 768px) {
+  .read-articles .container-fluid .carts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .read-articles .container-fluid .carts .card {
+    width: calc(50% - 0.5rem) !important;
+  }
+  
+  .selected-projects table {
+    font-size: 1rem;
+  }
+}
+
+/* === DESKTOP (992px+) === */
+@media (min-width: 992px) {
+  .read-articles .container-fluid .carts .card {
+    width: calc(33.333% - 1rem) !important;
+  }
+  
+  .last .list {
+    margin-top: 0 !important;
+  }
+  
+  .portfolio .container-fluid .row {
+    margin-left: 100px !important;
+  }
+}

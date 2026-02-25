@@ -1,0 +1,467 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Gotham';
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'Gotham Rounded';
+  src: url(./fonts/Gotham-Rounded/);
+  src: url(./fonts/Gotham-Rounded/GothamRnd-Light.otf);
+}
+
+h1,h2,h3,h4,h5{
+  font: './fonts/Gotham Rounded/GothamRnd-Medium.otf';
+}
+
+/* Animation pour le texte défilant (remplacement de marquee) */
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 25s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.scrolling-text:hover {
+  animation-play-state: paused;
+}
+
+/* --PAGE: HOME-- */
+
+/* --SECTION HOME-- */
+/* MENU */
+.header-container {
+  background: #262d31;
+  position:fixed;
+  width: 100%;
+  z-index: 100;
+  
+}
+
+.header-container header {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.header-container header .logo a {
+  font-family: 'Righteous';
+  font-size: 30px;
+  color: #1CB698;
+  text-decoration: none;
+}
+
+.nav-responsive {
+  background: teal;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  display: none;
+}
+
+.home .picture {
+  background-color: hsl(202, 13%, 17%);
+}
+
+.home img {
+  width: 110%;
+  opacity: .4;
+}
+
+.services .container .card {
+  margin: 0;
+  padding: 0;
+}
+
+/* --SECTION WIDE RANGE SERVICES-- */
+.wideRange {
+  background-color: yellow;
+}
+
+.wideRange .list {
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-left: 20px; 
+}
+
+.wideRange .list h2 {
+  margin-left: 50px;
+}
+
+.wideRange .list h2 {
+  margin-bottom: 40px;
+}
+
+.wideRange .list p {
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+.wideRange .list .progress {
+  background-color: transparent;
+}
+
+.wideRange .list .progress .progress-bar {
+  
+  background-color: black;
+}
+
+/* Section Discover our selected projects */
+.selected-projects .carousel {
+  width: 700px;
+  height: 500px;
+  position: relative;
+  margin: auto;
+  overflow: hiden;
+  border-radius: 15px;
+}
+
+/* Masquer les input radio */
+.selected-projects .carousel input {
+  display: none;
+}
+
+/* Carousel */
+.selected-projects .carousel .slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.selected-projects .carousel .slides .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.selected-projects .carousel-inner h5 {
+  padding: 5px;
+  width: 60%;
+  margin-left: 20%;
+  background-color: rgba(255, 255,255, .3);
+  color: black;
+}
+
+/* Table */
+.selected-projects table {
+  display: flex;
+  justify-content: center;
+  margin-left: 11%;
+}
+
+.selected-projects table tr {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+
+/* Video */
+.video .container-fluid{
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+hr {
+  margin-left: 35%;
+}
+
+/* Section Read Ours Arcticles */
+.read-articles .container-fluid .carts .card {
+  width: 21%;
+}
+
+/* Grille logos */
+.read-articles .container .col-3 img {
+  max-width: 100%;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+
+/* Section Something Great  */
+.something-great button {
+  background-color: black;
+  color:#fff
+}
+
+/* Section last */
+.last input[type='email']{
+  width: 362px;
+  border: none;
+}
+
+.last address p {
+  font: 'Gotham Rounded Light';
+}
+
+.last .list {
+  margin-left: 992px;
+  margin-top: -388px;
+}
+
+.last .list ul {
+  list-style: none;
+}
+
+.last .list ul li  {
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer p {
+  margin-right: 1000px;
+}
+
+footer a {
+  margin-right: 20px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* --PAGE: ABOUT-- */
+/* Title */
+.title {
+  width: 80%;
+
+}
+
+.about-title .title-img {
+  background: linear-gradient(to top, rgba(30,35,38,0.8), rgba(30,35,38,1)),
+  url(../assets/images/about/pexels-helenalopes-1015568-mediun.jpg);
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-title .title-img img{
+  display: block;
+  opacity: 0.3;
+}
+
+about-title-info .info p{
+  font-weight: 100;
+  font-size:x-small;
+}
+
+
+/* Section Passionate */
+.about-passionate {
+  background-color: yellow;
+}
+
+.about-team table {
+  display: flex;
+  justify-content: center;
+  margin-left: 11%;
+}
+
+.about-team table tbody td {
+margin-right: 20%;
+}
+
+
+.about-team table tbody tr {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+
+.about-team-pictures  .container-fluid img {
+  filter: grayscale(100%) brightness(100%);
+  transition: 0.3s;
+}
+
+/* Section Project on your mind */
+.about-project-mind {
+  background-color: yellow;
+}
+
+
+.about-project-mind .namemail input {
+  width: 46%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.about-project-mind .namemail input::focus {
+  border: transparent;
+}
+
+.about-project-mind input::placeholder {
+  color: black;
+  opacity: 0.8;
+}
+
+.about-project-mind input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.about-project-mind textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  height: 100px;
+}
+
+.about-project-mind textarea::placeholder {
+  color: black;
+  opacity: 0.8;
+}
+
+
+
+/* Section about-logos */
+.about-logos .col-3 img {
+  max-width: 100%;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+/* Section About Flexibility  */
+.about-flexibility .container-fluid {
+  margin-top: 50px;
+}
+
+/* CONTACT PAGE */
+
+.contact-title .title-img{
+  background: linear-gradient(to top, rgba(30,35,38,0.8), rgba(30,35,38,1)), 
+  url(../assets/images/contact/handshake.jpg);
+  background-size: cover;
+  height: 120vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-title .title-img img{
+  display: block;
+  opacity: 0.3;
+}
+
+/* Section Contact cards */
+.contact-cards .container .card p {
+  margin: 0; /* Enlève la marge par défaut */
+  padding: 0; /* Optionnel : enlève le padding aussi */
+}
+
+.contact-cards .container .last-card {
+  margin-left: 341px;
+}
+
+/* --PAGE PORTFOLIO-- */
+.portfolio-title .title-img {
+  background: linear-gradient(to top, rgba(30,35,38,0.8), rgba(30,35,38,1)), url(../assets/images/portfolio/pexels-kawerodriguess-16313660.jpg);
+  background-size: cover;
+  height: 120vh;
+  display: flex;
+  align-items: start;
+}
+
+.portfolio-title .title-img img{
+  display: block;
+  opacity: 0.6;
+}
+
+.portfolio {
+  margin-top: -50px;
+}
+
+.portfolio .container-fluid .row {
+  margin-top: 100px;
+  margin-left: 263px;
+  margin-right: -460px;
+}
+
+/* --PAGE PROJECT WEBSITE-- */
+/* Nav */
+.mininav {
+  margin-top: 81px;
+  margin-bottom: 15px;
+  display: grid;
+  justify-content: center;
+}
+
+/* Section Project */
+.project .about-project {
+  margin-top: 10px;
+  margin-left: 193px;
+  margin-right: 100px;
+}
+
+.project .about-project p {
+  font: 'GothamRdn-light.otf';
+}
+
+.project .about-project ol li {
+  list-style: circle;
+}
+
+.website-prevnex {
+  margin-top: 497px;
+  margin-bottom: 150px;
+}
+
+.info-project {
+  max-width: 250px;
+  margin-left: 1133px;
+  margin-top: -695px;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem; /* espace entre chaque bloc */
+  font-family: "GothamRdn", sans-serif;
+  color: #111;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.label {
+  font-weight:bold;
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 0.2rem;
+}
+
+.value {
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #000;
+}
+
+project-flexibility {
+  margin-top: 100px;
+}
+
+/* --Responsive-- */
+
+.responsive {
+  display: grid;
+  grid-template-columns: repeat(
+    autofit, 
+    minmax(
+      150px,
+      1fr
+    )
+  );
+}

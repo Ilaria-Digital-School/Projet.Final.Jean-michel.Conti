@@ -1,0 +1,75 @@
+// Variables
+$header-height: 70px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Navbar
+.header-container {
+  background: #262d31;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  height: $header-height; // hauteur fixée avec la variable
+}
+
+// Décalage du contenu
+body {
+  padding-top: $header-height;
+  min-width: $body-breakpoints(sm);
+}
+
+// Responsive
+/* -- Responsive typographie -- */
+@media (max-width: 576px) {
+  h1, h2, h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .home img {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Tablette */
+@media (min-width: 577px) and (max-width: 991px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* PC */
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Section Home */
+.home img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Navbar */
+.navbar-nav .nav-link {
+  color: white;
+  margin-left: 15px;
+}
+.navbar-nav .nav-link:hover {
+  color: #ffc107;
+  transition: 0.3s;
+}
+
+
+.last .list-unstyled {
+  margin-left: $grid-breakpoints(sm);
+}

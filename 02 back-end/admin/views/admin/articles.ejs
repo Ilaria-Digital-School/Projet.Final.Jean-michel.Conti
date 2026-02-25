@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .sidebar {
+      min-height: 100vh;
+      background-color: #212529;
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      color: #adb5bd;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #343a40;
+      color: white;
+    }
+
+    .main-content {
+      padding: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-2 sidebar d-none d-md-block">
+        <h4 class="mb-4">Admin Panel</h4>
+        <a href="/admin/dashboard">Tableau de bord</a>
+        <a href="/admin/portfolio">Portfolio (Projets)</a>
+        <a href="/admin/articles" class="active">Articles</a>
+        <a href="/admin/comments">Commentaires</a>
+        <hr>
+        <a href="/portfolio" target="_blank">Voir le site</a>
+        <a href="/auth/logout" class="text-danger">Déconnexion</a>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-10 main-content">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">
+            <%= title %>
+          </h1>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addArticleModal">Nouvel
+            Article</button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Titre</th>
+                <th>Slug</th>
+                <th>Date de création</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% articles.forEach((article, index)=> { %>
+                <tr>
+                  <td>
+                    <%= index + 1 %>
+                  </td>
+                  <td>
+                    <%= article.title %>
+                  </td>
+                  <td>
+                    <code><%= article.slug %></code>
+                  </td>
+                  <td>
+                    <%= new Date(article.createdAt).toLocaleDateString('fr-FR') %>
+                  </td>
+                  <td>
+                    <button class="btn btn-warning btn-sm">Editer</button>
+                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                  </td>
+                </tr>
+                <% }) %>
+                  <% if (articles.length===0) { %>
+                    <tr>
+                      <td colspan="5" class="text-center">Aucun article trouvé.</td>
+                    </tr>
+                    <% } %>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal Ajouter Article -->
+  <div class="modal fade" id="addArticleModal" tabindex="-1" aria-labelledby="addArticleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <form action="/articles" method="POST">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addArticleModalLabel">Rédiger un nouvel article</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="title" class="form-label">Titre de l'article</label>
+              <input type="text" class="form-control" id="title" name="title" required
+                placeholder="Ex: Les tendances du design en 2026">
+            </div>
+            <div class="mb-3">
+              <label for="slug" class="form-label">Slug (Généré automatiquement)</label>
+              <div class="input-group">
+                <span class="input-group-text">/blog/</span>
+                <input type="text" class="form-control" id="slug-preview" name="slug"
+                  placeholder="les-tendances-du-design-en-2026">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="content" class="form-label">Contenu de l'article</label>
+              <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-primary">Publier l'article</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Script pour générer le slug en temps réel pour les articles
+    const titleInput = document.getElementById('title');
+    const slugInput = document.getElementById('slug-preview');
+
+    function slugify(text) {
+      return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9 -]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+    }
+
+    titleInput.addEventListener('input', () => {
+      slugInput.value = slugify(titleInput.value);
+    });
+  </script>
+</body>
+
+</html>

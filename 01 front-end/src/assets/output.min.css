@@ -1,0 +1,15 @@
+.header-container {
+  background: #262d31;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  height: 70px;
+}
+
+body {
+  padding-top: 70px;
+}
+
+/*# sourceMappingURL=output.css.map */

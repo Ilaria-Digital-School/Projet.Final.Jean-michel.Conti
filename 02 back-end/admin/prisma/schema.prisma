@@ -1,0 +1,78 @@
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+}
+
+generator client {
+  provider  = "prisma-client-js"
+}
+
+model Artist {
+  id          Int         @id @default(autoincrement())
+  name        String
+  bio         String
+  artworks    Artwork[] 
+  comments    Comment[]
+}
+  
+model Artwork {
+  id          Int         @id @default(autoincrement())
+  titre       String
+  slug        String      @unique
+  content     String?     @db.Text
+  description String?     @db.Text
+  annee       Int
+  categorie   String
+  imageUrl    String
+  artistId    Int
+  artist      Artist      @relation(fields: [artistId], references: [id])
+  comments    Comment[]
+}
+
+model Admin {
+  id          Int         @id @default(autoincrement())
+  email       String      @unique
+  password    String
+  role        String      @default("admin")
+  comments    Comment[]
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  password String
+  role     String    @default("user")
+  comments Comment[]
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  
+  // Relations
+  artworkId Int?
+  artwork   Artwork? @relation(fields: [artworkId], references: [id])
+  
+  articleId Int?
+  article   Article? @relation(fields: [articleId], references: [id])
+  
+  userId    Int?
+  user      User?    @relation(fields: [userId], references: [id])
+  
+  adminId   Int?
+  admin     Admin?   @relation(fields: [adminId], references: [id])
+  
+  artistId  Int?
+  artist    Artist?  @relation(fields: [artistId], references: [id])
+}
+
+model Article {
+  id        Int      @id @default(autoincrement())
+  title     String
+  slug      String   @unique
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  comments  Comment[]
+}
